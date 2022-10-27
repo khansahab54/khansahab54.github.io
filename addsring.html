@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Please insert the items</p>
+    <input type="text" id="value">
+    <button onclick="add()">Add</button>
+    <p id="result"></p>
+    <script>
+
+        let myarray = [];
+        let str = "";
+        function add() {
+            let value = document.getElementById('value').value.trim();
+            document.getElementById('value').value="";
+            if(add==""){  
+               
+            }else{
+                myarray.push(value);
+            }
+           
+            str = "<ul>";
+            for (i = 0; i < myarray.length; i++) {
+                str += `<li>${myarray[i]}</li>`;
+            }
+            str += `</ul>`;
+            document.getElementById("result").innerHTML = str;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

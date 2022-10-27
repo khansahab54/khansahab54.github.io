@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>Age Calculator</title>
+
+</head>
+
+<body>
+  <p>Enter Your DOB</p><br><br>
+  <input type="date" name="" id="age"><br><br>
+  <button onclick="verify()">Verify</button><br><br>
+<p id="show"></p>
+
+  <script>
+    function verify() {
+      let age = document.getElementById("age").value;
+      // let y = document.getElementById("form");
+      let dob = new Date(age);
+      let today_date= new Date();
+      let x = today_date.getFullYear() - dob.getFullYear();
+      
+      document.getElementById("show").innerHTML = "Your Age Is " + x;
+       }   </script>
+  
+</body>
+</html>

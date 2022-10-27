@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>myobject is not itrable</title>
+</head>
+<body>
+    <script>
+        let myarray=[10,12,13,9,2,20];
+        let myobj={
+            "fname":"jhon",
+            "lname":"Doe",
+            "age":10
+        };
+        for(let x of myarray){
+            console.log(x);
+            console.log(myarray[x]);
+        }
+        for(let x of myobj){
+            console.log(x);
+            console.log(myobj[x]);
+        }
+    </script>
+</body>
+</html>

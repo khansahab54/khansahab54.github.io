@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- 
+  Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+  <title>Form</title>
+  <style>
+    @font-face {
+      font-family: myfont;
+      src: url(Oswald-VariableFont_wght.ttf);
+    }
+
+    */ {
+      font-family: myfont;
+      font-size: 18px;
+    }
+
+    #div {
+      text-align: center;
+      background-color: rgba(216, 211, 145, 0.986);
+      padding: 10px;
+    }
+
+
+    form {
+      margin-top: 30px;
+      /* margin-right: 55px;
+      margin-left: 55px; */
+      /* margin-bottom: 40px;  */
+      /* padding-right :55px;   */
+      /* padding-left: 450px; */
+      color: rgb(0, 0, 0);
+      background-color: rgb(158, 124, 101);
+    }
+
+    button {
+      margin-left:600px;
+      color: rgb(0, 0, 0);
+      background-color: rgb(139, 78, 78);
+      text-align: center;
+    }
+
+    span {
+      font-size: 10px;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="div">
+    <h2 style="font-family: 'Lucida Sans';">Student__Registration__Form</h2>
+  </div>
+  <form class="form-group" oninput="check()" onsubmit="check()" novalidate>
+    <div class="form-group">
+      <div class="form-group col-md-6">
+        <label for="inputFirstName">Full Name:</label>
+        <input type="text" class="form-control" placeholder="Full name" id="inputname" onfocusout="fullname()" required>
+
+        <span id="nameerr"></span>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputFirstName">Phone Number:</label>
+        <input type="tel" class="form-control" placeholder="Number" id="inputnum" onfocusout="mobnumber()" required>
+        <span id="nameerr1"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email:</label>
+        <input type="email" class="form-control" id="inputemail" placeholder="Email" onfocusout="email()" required>
+        <span id="nameerr2"></span>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password:</label>
+        <input type="password" class="form-control" id="inputpassword" placeholder="Password" onfocusout="password()"
+          required>
+        <span id="nameerr3"></span>
+
+      </div>
+      <div class="form-group">
+        <div class="form-group col-md-6">
+          <label for="inputpass">Confirm Password:</label>
+          <input type="password" class="form-control" id="inputpass" placeholder="Re-Enter Password"
+            onfocusout="verify()" requiredx>
+          <span id="nameerr4"></span>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <button onclick="check()">submit</button>
+            <p id="btn"></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+
+  <script>
+    let errorarray = [];
+    function fullname() {
+      let fname = document.getElementById("inputname").value;
+      var regex = /^[a-zA-Z ]{2,30}$/;
+      var result = regex.test(fname);
+      if (result) {
+        document.getElementById("inputname").classList.add("is-valid");
+        document.getElementById("nameerr").innerHTML = "INPUT OKAY";
+        document.getElementById("nameerr").classList.add("text-success");
+
+        document.getElementById("inputname").classList.remove("is-invalid");
+        document.getElementById("nameerr").classList.remove("text-danger");
+
+      }
+      else {
+        document.getElementById("inputname").classList.add("is-invalid");
+        document.getElementById("nameerr").innerHTML = "INVALID INPUT";
+        document.getElementById("nameerr").classList.add("text-danger");
+
+        document.getElementById("inputname").classList.remove("is-valid");
+        document.getElementById("nameerr").classList.remove("text-success");
+        errorarray.push("INVALID NAME");
+      }
+    }
+    function mobnumber() {
+      let num = document.getElementById("inputnum").value;
+      var regex = /^(\([0-9]{5}\) |[0-9]{5})/;
+      var result = regex.test(num);
+      if (result) {
+        document.getElementById("inputnum").classList.add("is-valid");
+        document.getElementById("nameerr1").innerHTML = "INPUT OKAY";
+        document.getElementById("nameerr1").classList.add("text-success");
+
+        document.getElementById("inputnum").classList.remove("is-invalid");
+        document.getElementById("nameerr1").classList.remove("text-danger");
+      }
+      else {
+        document.getElementById("inputnum").classList.add("is-invalid");
+        document.getElementById("nameerr1").innerHTML = "INVALID INPUT";
+        document.getElementById("nameerr1").classList.add("text-danger");
+
+        document.getElementById("inputnum").classList.remove("is-valid");
+        document.getElementById("nameerr1").classList.remove("text-success");
+      }
+    }
+    function email() {
+      let email = document.getElementById("inputemail").value;
+      var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+      // /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+      var result = regex.test(email);
+      if (result) {
+        document.getElementById("inputemail").classList.add("is-valid");
+        document.getElementById("nameerr2").innerHTML = "INPUT OKAY";
+        document.getElementById("nameerr2").classList.add("text-success");
+
+        document.getElementById("inputemail").classList.remove("is-invalid");
+        document.getElementById("nameerr2").classList.remove("text-danger");
+      }
+      else {
+        document.getElementById("inputemail").classList.add("is-invalid");
+        document.getElementById("nameerr2").innerHTML = "INVALID INPUT";
+        document.getElementById("nameerr2").classList.add("text-danger");
+
+        document.getElementById("inputemail").classList.remove("is-valid");
+        document.getElementById("nameerr2").classList.remove("text-success");
+
+      }
+    }
+    function password() {
+      let password = document.getElementById("inputpassword").value;
+      var regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+      var pass = regex.test(password);
+      if (pass) {
+        document.getElementById("inputpassword").classList.add("is-valid");
+        document.getElementById("nameerr3").innerHTML = "INPUT OKAY";
+        document.getElementById("nameerr3").classList.add("text-success");
+
+        document.getElementById("inputpassword").classList.remove("is-invalid");
+        document.getElementById("nameerr3").classList.remove("text-danger");
+      }
+      else if (pass == '') {
+        document.getElementById("inputpassword").classList.add("is-invalid");
+        document.getElementById("nameerr3").innerHTML = "CANNOT BE BLANK";
+        document.getElementById("nameerr3").classList.add("text-success");
+
+        document.getElementById("inputpassword").classList.remove("is-valid");
+        document.getElementById("nameerr3").classList.remove("text-success");
+      }
+      else {
+        document.getElementById("inputpassword").classList.add("is-invalid");
+        document.getElementById("nameerr3").innerHTML = "INVALID INPUT";
+        document.getElementById("nameerr3").classList.add("text-success");
+
+        document.getElementById("inputpassword").classList.remove("is-valid");
+        document.getElementById("nameerr3").classList.remove("text-success");
+      }
+
+    }
+    function verify() {
+      var confirm = document.getElementById("inputpass").value;
+      var pass = document.getElementById("inputpassword").value;
+      if (confirm != pass) {
+        document.getElementById("inputpass").classList.add("is-invalid");
+        document.getElementById("nameerr4").innerHTML = "NOT MATCHED!";
+        document.getElementById("nameerr4").classList.add("text-danger");
+
+        document.getElementById("inputpass").classList.remove("is-valid");
+        document.getElementById("nameerr4").classList.remove("text-success");
+      }
+      else if (pass != '') {
+        document.getElementById("inputpass").classList.add("is-valid");
+        document.getElementById("nameerr4").innerHTML = "MATCHED!"
+        document.getElementById("nameerr4").classList.add("text-success");
+
+        document.getElementById("inputpass").classList.remove("is-invalid");
+        document.getElementById("nameerr4").classList.remove("text-danger");
+
+      }
+      else if (pass == '') {
+        document.getElementById("inputpass").classList.add("is-invalid");
+        document.getElementById("nameerr4").innerHTML = "CANNOT BE BLANK";
+        document.getElementById("nameerr4").classList.add("text-danger");
+
+      }
+
+    }
+    function check() {
+      let a, b, c, d, e, str;
+
+      a = document.getElementById("inputname").value;
+      b = document.getElementById("inputnum").value;
+      c = document.getElementById("inputemail").value;
+      d = document.getElementById("inputpassword").value;
+      e = document.getElementById("inputpass").value;
+      str = a
+      if (a == '' || b == '' || c == '' || d == '' || e == '') {
+        document.getElementById("btn").innerHTML = "User Id:" + str.substring(0, 5) + "_" + Math.trunc(Math.random() * 1000000);
+        document.getElementById("btn").disabled = true;
+
+      }
+      else {
+        document.getElementById("btn").disabled = false;
+      }
+
+
+
+
+    }
+
+  </script>
+</body>
+
+</html>

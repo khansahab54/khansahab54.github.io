@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Generating Random Id</title>
+    </head>
+    <body>
+        <p>Generating Random Id with randome function and other function</p>
+    <input type="text" id="name">
+        <button onclick="generate()">Generate Id</button>
+        <p id="show"></p>
+        <script>    
+            function generate(){
+                let str = document.getElementById("name").value;
+                document.getElementById("show").innerHTML="User Id:- "+str.substring(0,4)+"_"+Math.trunc(Math.random()*1000000);
+
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>myobject is not itrable</title>
+</head>
+<body>
+    <p id="show"></p>
+    <script>
+        // let myarray=[10,12,13,9,2,20];
+        let myobj=[{
+            "fname":"jhon",
+            "lname":"Doe",
+            "age":10
+        },
+        {
+            "fname":"Imran",
+            "lname":"Khan",
+            "age":20
+        },
+        {
+            "fname":"Mazhar",
+            "lname":"Imam",
+            "age":30
+        },
+        {
+            "fname":"shamsoddin",
+            "lname":"Ansari",
+            "age":40
+        },
+        {
+            "fname":"vignesh",
+            "lname":"Bhai",
+            "age":50
+        }];
+  
+        // for(i=0;i<myobj.length;i++){ 
+        //     // console.log(myobj[i].fname+" "+myobj[i].lname+" "+myobj[i].age+" ");
+        //     document.getElementById("show").innerHTML+=myobj[i].fname+" "+myobj[i].lname+" "+myobj[i].age+"<br>";
+        // }
+
+        for(let x of myobj){
+            
+            // console.log(x.fname+""+x.lname+""+x.age);
+            document.getElementById("show").innerHTML=x.fname+" "+x.lname+" "+x.age+"<br>"
+          
+        }
+     
+    </script>
+</body>
+</html>

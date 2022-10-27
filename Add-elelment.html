@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Add Element</title>
+</head>
+<body>
+ 
+    <p>Please insert the items</p>
+    <input type="text" id="value">
+  <button onclick="add()">Add</button>
+    <p id="show"></p>
+
+   <script>
+   var items =[];
+
+function add() {
+  value = document.getElementById('value').value;
+  items.push(value);
+  //console.log(items);
+  
+  document.getElementById("show").innerHTML+=items+"<br><br>";
+
+
+   
+   }</script>
+   
+   
+</body>
+</html>
